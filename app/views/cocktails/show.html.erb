@@ -1,16 +1,37 @@
-<div class="container">
-  <h1>Cocktail details</h1>
-  <p><%= @cocktail.name %></p>
-  <% @cocktail.doses.each do |dose| %>
-  <p><%= dose.description %></p>
-  <p><%= dose.ingredient.name %></p>
-  <%= link_to "Remove", dose_path(dose), 
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %> |
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to cocktails_path, class: "navbar-brand" do %>
+    <%= image_tag "https://www.zazzle.com/rlv/svc/view?realview=113464192529429564&design=d2c0056b-6734-4c2d-a1c0-a2d660c7294f&rlvnet=1&size=9inch&max_dim=540&cacheDefeat=1602967682377" %>
   <% end %>
 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<%= link_to 'Back to Cocktails', cocktails_path %> |
-<%= link_to 'Add a Dose', new_cocktail_dose_path(@cocktail) %> |
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to 'Home', cocktails_path, class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
 </div>
+
+<div class="container">
+<h2><%= @cocktail.name %></h2>
+<ul class="list-group">
+<% @cocktail.doses.each do |dose| %>
+  <li class="list-group-item">
+    <%= dose.description %> |
+    <%= dose.ingredient.name %> |
+    <%= link_to 'Delete', dose, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </li>
+<% end %>
+
+  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+
+</ul>
+<%= link_to 'Back', cocktails_path %> |
+<%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail) %> |
+<%= link_to 'Delete Cocktail', @cocktail, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div> 
