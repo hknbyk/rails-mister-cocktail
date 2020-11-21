@@ -1,28 +1,23 @@
 .banner {
-  background-size: cover;
-  background-position: center;
-  padding: 150px 0;
-  height: 100vh;
+  color: white;
+  text-align: center;
+  height: 400px;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 32px;
 }
-
 .banner h1 {
-  margin: 0;
-  margin-left: 20px;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 42px;
-  font-weight: bolder;
-  text-shadow: 0px 1px rgba(0,0,0,0.2);
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
-
 .banner p {
-  font-size: 36px;
-  margin-left: 20px;
-  color: white;
-  opacity: .8;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-weight: normal;
+  font-size: 25px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+  margin-bottom: 30px;
 }
